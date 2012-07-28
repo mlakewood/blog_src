@@ -1,0 +1,52 @@
+{% extends "base.j2" %}
+
+{% block main -%}
+<div id="date">
+    <div id="date_spacer"></div>
+    <div id="date_heading">
+    <time datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
+        {{ resource.meta.created.strftime('%a, %d %b %Y') }}
+    </time>
+    </div>
+</div>
+    <div id="post">
+
+<div id="post_content">
+<article class="post">
+<nav class="post_nav">
+<a class="prev{{' disabled' if not resource.prev_by_time }}"
+    title="{{ resource.prev_by_time.meta.title }}"
+    {% if resource.prev_by_time %}
+    href="{{ content_url(resource.prev_by_time.url) }}"{% endif %}>
+    previous ---
+</a>
+
+<a class="next{{' disabled' if not resource.next_by_time }}"
+    title="{{ resource.next_by_time.meta.title }}"
+    {% if resource.next_by_time %}
+    href="{{ content_url(resource.next_by_time.url) }}"{% endif %}>
+    next
+</a>
+
+<br>
+</nav>
+<h1 class="title">
+    <a href="{{ content_url(resource.url) }}">
+        {{ resource.meta.title }}
+    </a>
+</h1>
+
+
+{% filter markdown|typogrify -%}
+{% mark post -%}
+{% block post -%}{%- endblock %}
+{%- endmark %}
+{%- endfilter %}
+</div>
+</div>
+<div id="content_footer">
+    <div id="backlink_div">
+        <a class="backlink" href="{{ content_url(resource.node.url) }}">main blog</a>
+    <div>
+</div>
+{%- endblock %}

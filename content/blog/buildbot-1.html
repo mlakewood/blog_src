@@ -1,0 +1,68 @@
+---
+title: Buildbot CI how-to 1
+description: >
+    How to create a simple buildbot server to perform Continuous Integration
+created: !!timestamp '2012-07-28 10:00:00'
+tags:
+    - python
+    - buildbot
+---
+
+{% mark excerpt -%}
+
+>"If you cant automate it, it isnt a test." - Me
+
+
+This is the first on a series of posts about Continuous Integration (CI) using buildbot
+{%- endmark %}
+
+
+Why Continuous Integration and Why buildbot:
+-------------------------------------------
+
+CI is a process where for every commit there is some process that build from scratch the code base and runs a set of tests. This is a pretty loose definition and if you would like more information checkout [wikipedia](http://en.wikipedia.org/wiki/Continuous_integration) ,[bar] and [baz]. This usually involves some kind of server that polls your source repository detects a new commit, then runs all of your tests (you do have all those [right?](http://www.joelonsoftware.com/articles/fog0000000043.html) )
+
+There are quite a lot of different CI servers out there (checkout the [wikipedia](http://en.wikipedia.org/wiki/Continuous_integration#Software) page for a pretty exhustive list) and like anything which one you choose is the result of a lot of different factors. Basically this article starts with the assumptions that
+1. You have decided that you want to do Continuous Integration
+2. You have decided to use buildbot
+3. You have looked at the docs and gone... ummmm, wha?
+
+Now I think the docs of buildbot are very thorough, and they really do tell you all the things you need to know. Unfortunatly buildbot is soo flexible that the main thing the docs are missing IMHO is the theory of how all these pieces fit together. That is what this series is about.
+
+There is a copy of the buildbot configuration source at [github]. So go and download the source there if you want to jump ahead.
+
+The master.cfg
+--------------
+
+
+	
+	from config import slaves, schedulers, builders, status, changesource
+	
+	BuildmasterConfig = {
+	    'slaves': slaves.get_slaves(),
+	    'schedulers': schedulers.get_schedulers('sws-build'),
+	    'builders': builders.get_builders("sws-build", "/home/slave/sws-bs1"),
+	    'status': status.get_status(),
+	    'slavePortnum': 9989,
+	    'change_source': changesource.get_source(),
+	    'title': 'My BuildBot',
+	    'buildbotURL': 'http://buildbot.localhost.com:8010/',
+	    'db_url': 'sqlite:///state.sqlite',
+	}
+
+this file is named master.cfg and sites next to a python package called config with the relevant modules in the packa as imported.
+
+
+	config
+	  |
+	  - __init__.py
+	  - builders.py
+	  - buildsteps.py
+	  - changesource.py
+	  - schedulers.py
+	  - slaves.py
+	  - status.py
+	master.cfg
+
+
+This is the configuration file you give to buildbot when building the buildbot master.

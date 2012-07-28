@@ -1,0 +1,146 @@
+#navbar {
+    width: 15%;
+    height: 900%;
+    float: left;
+    margin-left: 30px;
+    margin-right: 40px;
+    position: fixed;
+}
+
+#content {
+    width: 80%;
+    height: 900px;
+    border-left-width: 1px;
+    border-left-color: #E3E3E3;
+    border-left-style: solid;
+    margin-left: 20%;
+    clear: both;
+
+}
+
+#post {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/*#post_content {
+    margin-left: 30px;
+}*/
+
+#link_container {
+    margin-left: 30px;
+
+}
+
+#title {
+    text-decoration: none;
+}
+
+#spacer {
+    width: 20%;
+    height: 200px;
+
+}
+
+.nav {
+    text-decoration: none;
+}
+
+
+
+#date_heading {
+    text-align: right;
+    margin-right: 20px;
+}
+#date_spacer {
+    height: 40px;
+}
+
+#date {
+    height: 100px;
+    border-bottom-width: 1px;
+    border-bottom-color: #E3E3E3;
+    border-bottom-style: solid;
+}
+
+h1 {
+    font-family: "freight-sans-pro",sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 30px;
+    border: none;
+    padding: 0;
+    display: block;
+    color: black;
+    margin-left: 0;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 23px;
+    color: #585C60;
+    -webkit-font-smoothing: antialiased;
+    max-width: none;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+h3{
+    font-size: 15px;
+    line-height: 14px;
+}
+
+body {
+    font-family: "freight-sans-pro",sans-serif;
+    font-weight: 300;
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.post_nav {
+    text-align: center;
+    font-size: 15px;
+}
+
+#content_footer {
+    border-top-width: 1px;
+    border-top-color: #E3E3E3;
+    border-top-style: solid;
+}
+#backlink_div {
+    margin-left: 40px;
+    text-align: none;
+}
+
+.title {
+    font-family: "freight-sans-pro",sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 30px;
+    border: none;
+    padding: 0;
+    display: block;
+    color: black;
+    margin-left: 0;
+    text-align: center;
+
+}
+
+pre {
+    background-color: #E3E3E3;
+    padding: 20px;
+}
+
+/*blockquote {
+    margin: 20px;
+    background-color: #E3E3E3;
+}*/

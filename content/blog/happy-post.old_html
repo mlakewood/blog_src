@@ -1,0 +1,27 @@
+---
+title: Buildbot CI how-to 1
+description: >
+    How to create a simple buildbot server to perform Continuous Integration
+created: !!timestamp '2012-07-28 10:00:00'
+tags:
+    - python
+    - buildbot
+---
+
+{% mark image -%}
+
+![Airport]([[!!images/airport.png]])
+
+{%- endmark %}
+
+{% mark excerpt -%}
+
+"If you cant automate it, it isnt a test." - Me
+
+{%- endmark %}
+
+Why Continuos Integration and Why buildbot:
+
+
+
+[MMJ]: http://www.gutenberg.org/cache/epub/8164/pg8164.html
